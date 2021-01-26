@@ -17,13 +17,9 @@ class CalendarsController < ApplicationController
   def plan_params
     params.require(:plan).permit(:date, :plan)
   end
-<<<<<<< Updated upstream
-  
-  require "date"
-  
-=======
 
->>>>>>> Stashed changes
+  require "date"
+
   def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
@@ -46,6 +42,8 @@ class CalendarsController < ApplicationController
       end
 
       days = { :month => (@todays_date + x).month, :date => (@todays_date + x).day, :plans => today_plans, :wday => Date.today.wday}
+
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans}
       @week_days.push(days)
     end
 
